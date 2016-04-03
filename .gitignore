@@ -1,5 +1,6 @@
-# Binaries
-libAmplitude.a
+# Binary libs
+*.a
+*.jar
 
 # User-specific files
 *.suo

@@ -17,11 +17,13 @@ Build iOS bindings
 
 2. Build Amplitude-iOS
 
-```
+```bash
 $ cd Amplitude-iOS
 $ xcodebuild
 $ xcodebuild -sdk iphonesimulator -arch i386
-$ lipo -create -output build/libAmplitude.a build/Release-iphoneos/libAmplitude.a build/Release-iphonesimulator/libAmplitude.a
+$ lipo -create -output build/libAmplitude.a \
+  build/Release-iphoneos/libAmplitude.a \
+  build/Release-iphonesimulator/libAmplitude.a
 ```
 
 This creates `build/libAmplitude.a` which will be a universal (fat) library which will be suitable to use for all iOS development targets.

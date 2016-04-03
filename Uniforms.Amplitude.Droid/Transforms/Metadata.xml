@@ -1,0 +1,22 @@
+﻿<metadata>
+	<!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  	-->
+
+  <remove-node path="/api/package[starts-with(@name, 'okhttp3')]" />
+  <remove-node path="/api/package[starts-with(@name, 'okio')]" />
+  <remove-node path="/api/package[@name='com.amplitude.security']" />
+  <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='PinnedAmplitudeClient']" />
+  <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='PinnedAmplitudeClient.SSLContextBuilder']" />
+  <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='AmplitudeClient']/field[@visibility='protected']" />
+  <remove-node path="/api/package[@name='com.amplitude.api']/class[@name='AmplitudeClient']/method[@visibility='protected']" />
+
+  <attr path="/api/package[@name='com.amplitude.api']/class[@name='DeviceInfo']/field[@name='TAG']"
+  	name="managedName">DeviceInfoTag</attr>
+  <attr path="/api/package[@name='com.amplitude.api']/class[@name='DeviceInfo']/field[@name='OS_NAME']"
+  	name="managedName">DeviceInfoOsName</attr>
+</metadata>
