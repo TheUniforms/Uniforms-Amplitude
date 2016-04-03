@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude", "Uniforms.Amplitude\Uniforms.Amplitude.csproj", "{CAA89337-1742-4881-B6F0-D32BD079CD2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.iOS", "Uniforms.Amplitude.iOS\Uniforms.Amplitude.iOS.csproj", "{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAA89337-1742-4881-B6F0-D32BD079CD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA89337-1742-4881-B6F0-D32BD079CD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA89337-1742-4881-B6F0-D32BD079CD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA89337-1742-4881-B6F0-D32BD079CD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
