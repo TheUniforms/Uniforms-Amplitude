@@ -18,6 +18,34 @@ namespace AmplTest.iOS
         {
             Amplitude.Instance.LogEvent("Test");
         }
+
+        [Test]
+        public void LogEventWithProperties()
+        {
+            Amplitude.Instance.SetUserProperties(new {
+                Role = "Tester"
+            });
+
+            var props = new {
+                Type = "StartChat",
+                MaxUsers = 10
+            };
+            Amplitude.Instance.LogEvent("Test", props);
+
+            Amplitude.Instance.ClearUserProperties();
+        }
+
+        [Test]
+        public void LogEventWithUserProperties()
+        {
+            Amplitude.Instance.SetUserProperties(new {
+                Role = "Tester"
+            });
+
+            Amplitude.Instance.LogEvent("Test");
+
+            Amplitude.Instance.ClearUserProperties();
+        }
     }
 }
 

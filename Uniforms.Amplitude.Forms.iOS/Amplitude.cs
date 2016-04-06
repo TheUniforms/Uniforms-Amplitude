@@ -85,11 +85,17 @@ namespace Uniforms.Amplitude.Forms.iOS
             }
         }
 
+        /// <summary>
+        /// Tracks revenue.
+        /// </summary>
         public void LogRevenue(double amount)
         {
             impl.LogRevenue(NSNumber.FromDouble(amount));
         }
 
+        /// <summary>
+        /// Tracks revenue with product identifier and optional transaction receipt.
+        /// </summary>
         public void LogRevenue(string productIdentifier, int quantity, double price, byte[] receipt = null)
         {
             if (receipt != null)
@@ -105,11 +111,17 @@ namespace Uniforms.Amplitude.Forms.iOS
             }
         }
 
+        /// <summary>
+        /// Adds or replaces properties that are tracked on the user level.
+        /// </summary>
         public void SetUserProperties(object userProperties, bool replace = false)
         {
             impl.SetUserProperties(GetProperties(userProperties), replace);
         }
 
+        /// <summary>
+        /// Clears all properties that are tracked on the user level.
+        /// </summary>
         public void ClearUserProperties()
         {
             impl.ClearUserProperties();
@@ -123,13 +135,14 @@ namespace Uniforms.Amplitude.Forms.iOS
 
         static NSDictionary GetProperties(object properties)
         {
-            var jObject = (properties as JObject) ??
-                JObject.FromObject(properties);
+            var json = (properties as JObject) != null ?
+                (properties as JObject).ToString() :
+                Newtonsoft.Json.JsonConvert.SerializeObject(properties);
 
             NSError error = null;
 
             var dict = (NSDictionary)NSJsonSerialization.Deserialize(
-                NSData.FromString(jObject.ToString(), NSStringEncoding.UTF8),
+                NSData.FromString(json, NSStringEncoding.UTF8),
                 0, out error);
 
             if (error != null)
@@ -138,32 +151,6 @@ namespace Uniforms.Amplitude.Forms.iOS
             }
 
             return dict;
-
-            var json = new NSMutableDictionary();
-
-            foreach (JProperty p in jObject.Properties())
-            {
-                NSObject value = null;
-
-                switch (p.Type)
-                {
-                    case JTokenType.Integer:
-                        value = NSNumber.FromNInt((nint)(int)p.Value);
-                        break;
-                        
-                    case JTokenType.Float:
-                        value = NSNumber.FromDouble((double)p.Value);
-                        break;
-
-                    default:
-                        value = (NSString)p.Value.ToString();
-                        break;
-                }
-
-                json.Add((NSString)p.Name, value);
-            }
-
-            return json;
         }
     }
 }
