@@ -21,9 +21,14 @@ done
 rm Uniforms.Amplitude*.dll 2> /dev/null
 rm Uniforms.Amplitude*.mdb 2> /dev/null
 rm Uniforms.Amplitude*.nupkg 2> /dev/null
+
 cp ../Uniforms.Amplitude/bin/Release/Uniforms.Amplitude.dll* . 2> /dev/null
+
+cp ../Uniforms.Amplitude.Droid/bin/Release/Uniforms.Amplitude.Droid.dll* . 2> /dev/null
 cp ../Uniforms.Amplitude.Native.Droid/bin/Release/Uniforms.Amplitude.Native.Droid.dll* . 2> /dev/null
+
 cp ../Uniforms.Amplitude.iOS/bin/Release/Uniforms.Amplitude.iOS.dll* . 2> /dev/null
+cp ../Uniforms.Amplitude.Native.iOS/bin/Release/Uniforms.Amplitude.Native.iOS.dll* . 2> /dev/null
 
 nuget pack Uniforms.Amplitude.nuspec
 
