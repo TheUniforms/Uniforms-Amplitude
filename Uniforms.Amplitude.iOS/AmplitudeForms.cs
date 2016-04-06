@@ -3,12 +3,12 @@ using System.Diagnostics;
 using Foundation;
 using Newtonsoft.Json.Linq;
 
-[assembly: Xamarin.Forms.Dependency (typeof (Uniforms.Amplitude.iOS.AmplitudeForms))]
+[assembly: Xamarin.Forms.Dependency (typeof (Uniforms.Amplitude.Forms.iOSAmplitude))]
 
 namespace Uniforms.Amplitude.iOS
 {
     [Preserve(AllMembers = true)]
-    public class AmplitudeForms : IAmplitude
+    public class FormsAmplitude : IAmplitude
     {
         /// <summary>
         /// Empty method just to reference the class in code.

@@ -5,10 +5,17 @@ namespace Uniforms.Amplitude
     public interface IAmplitude
     {
         /// <summary>
-        /// Name to initialize Amplitude instance with. Must be set before
-        /// Initialize() call.
+        /// Name to initialize Amplitude instance with.
         /// </summary>
+        /// <description>
+        /// Must be set before calling the Initialize() method or just left empty.
+        /// </description>
         string Name { get; set; }
+
+        /// <summary>
+        /// Initializes the Amplitude with your Amplitude api key and optional user ID.
+        /// </summary>
+        void Initialize(string apiKey, string userId = null);
 
         /// <summary>
         /// Tracks an event.
@@ -27,10 +34,28 @@ namespace Uniforms.Amplitude
         void LogEvent(string eventType, object properties = null, bool outOfSession = false);
 
         /// <summary>
-        /// Initializes the Amplitude with your Amplitude api key and optional user ID.
+        /// Tracks revenue.
         /// </summary>
         /// <description>
-        void Initialize(string apiKey, string userId = null);
+        /// To track revenue from a user, call LogRevenue() each time the user generates revenue.
+        /// Method takes in a double with the dollar amount of the sale as the only argument.
+        /// </description>
+        void LogRevenue(double amount);
+
+        /// <summary>
+        /// Tracks revenue with product identifier and optional transaction receipt.
+        /// </summary>
+        void LogRevenue (string productIdentifier, int quantity, double price, byte[] receipt = null);
+
+        /// <summary>
+        /// Adds or replaces properties that are tracked on the user level.
+        /// </summary>
+        void SetUserProperties (object userProperties, bool replace = false);
+
+        /// <summary>
+        /// Clears all properties that are tracked on the user level.
+        /// </summary>
+        void ClearUserProperties ();
     }
 }
 

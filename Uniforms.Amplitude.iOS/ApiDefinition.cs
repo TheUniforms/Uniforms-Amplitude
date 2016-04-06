@@ -112,7 +112,18 @@ namespace Uniforms.Amplitude.iOS
         /// Property keys must be strings and values must be serializable.
         /// </description>
         [Export ("setUserProperties:")]
-        void SetUserProperties (string userProperties);
+        void SetUserProperties (NSDictionary userProperties);
+
+
+        /// <summary>
+        /// Adds or replaces properties that are tracked on the user level.
+        /// </summary>
+        /// <description>
+        /// An NSDictionary containing any additional data to be tracked.
+        /// Property keys must be strings and values must be serializable.
+        /// </description>
+        [Export ("setUserProperties:replace:")]
+        void SetUserProperties (NSDictionary userProperties, bool replace);
 
         /// <summary>
         /// Clears all properties that are tracked on the user level.
