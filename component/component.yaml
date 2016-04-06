@@ -1,0 +1,31 @@
+%YAML 1.2
+---
+packages:
+  "": Newtonsoft.Json, Version=8.0.3
+libraries: 
+  ios-unified:
+    - ../lib/Uniforms.Amplitude.dll
+    - ../lib/Uniforms.Amplitude.iOS.dll
+    - ../lib/Uniforms.Amplitude.Native.iOS.dll
+  android:
+    - ../lib/Uniforms.Amplitude.dll
+    - ../lib/Uniforms.Amplitude.Droid.dll
+    - ../lib/Uniforms.Amplitude.Native.Droid.dll
+icons: 
+  - uniforms-amplitude_128x128.png
+  - uniforms-amplitude_512x512.png
+version: "0.9"
+details: Details.md
+getting-started: GettingStarted.md
+samples: 
+  iOS Sample: ../examples/AmplSample.iOS.sln
+  Android Sample: ../examples/AmplSample.Droid.sln
+id: uniforms-amplitude
+summary: "Amplitude API cross-platform bindings library for Xamarin"
+publisher-url: http://05bit.com
+license: License.md
+#screenshots: 
+#  - screenshots/screenshot1.png
+name: Uniforms.Amplitude
+publisher: Alexey Kinev
+...

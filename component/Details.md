@@ -1,41 +1,4 @@
-Amplitude for Xamarin
-=====================
-
-[Amplitude](https://amplitude.com) API binding library for [Xamarin](https://www.xamarin.com).
-
-
-Basic usage
------------
-
-1. Initialize platform specific classes:
-
-    For **iOS** application in `UIApplicationDelegate.FinishedLaunching()`:
-
-    ```csharp
-    Uniforms.Amplitude.iOS.Amplitude.Register();
-    ```
-
-    For **Android** application in `OnCreate()` of main activity:
-
-    ```csharp
-    Uniforms.Amplitude.Droid.Amplitude.Register(this);
-    ```
-
-2. Initialize Amplitude with API key:
-
-    ```csharp
-    Amplitude.Instance.Initialize("--- Amplitude key here ---");
-    ```
-
-3. Send events to Amplitude:
-
-    ```csharp
-    Amplitude.Instance.LogEvent("Start");
-    ```
-
-
-API reference
--------------
+# Uniforms.Amplitude details
 
 Cross-platform interface is available via ``Uniforms.Amplitude`` static class:
 
@@ -203,8 +166,3 @@ Troubleshooting
 ### System.NullReferenceException
 
 Having such exception on `Amplitude.Instance.Initialize()` means that implementation class was not registered. Make user you call `Register()` static method before trying to get Amplitude instance.
-
-License
--------
-
-The **Uniforms.Amplitude** project is licensed under **Apache License Version 2.0**. See the LICENSE file for details.

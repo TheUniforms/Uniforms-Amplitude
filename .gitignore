@@ -6,9 +6,14 @@
 Config.resx
 
 # Restored packages
+/examples/packages
 /packages
 
+# Tools
+xamarin-component.exe
+
 # Build results
+component/*.xam
 .builds
 [Dd]ebug/
 [Dd]ebugPublic/
