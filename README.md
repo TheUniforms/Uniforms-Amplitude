@@ -42,13 +42,13 @@ namespace MyApp
 For iOS:
 
 ```csharp
-Uniforms.Amplitude.Forms.iOSAmplitude.Init()
+Uniforms.Amplitude.iOSAmplitude.Init()
 ```
 
 For Android:
 
 ```csharp
-Uniforms.Amplitude.Droid.FormsAmplitude.Init()
+Uniforms.Amplitude.Native.Droid.FormsAmplitude.Init()
 ```
 
 

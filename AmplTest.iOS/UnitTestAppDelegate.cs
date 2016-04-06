@@ -40,7 +40,7 @@ namespace AmplTest.iOS
             window.MakeKeyAndVisible();
 
             // register Amplitude implementation
-            Uniforms.Amplitude.Forms.iOS.Amplitude.Register();
+            Uniforms.Amplitude.iOS.Amplitude.Register();
 
             // init Amplitude
             Uniforms.Amplitude.Amplitude.Instance.Initialize(Config.ApiKey);

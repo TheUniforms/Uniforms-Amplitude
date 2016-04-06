@@ -6,9 +6,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{71B06257-6803-4DA9-B2D5-15839592E353}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Uniforms.Amplitude.Forms.iOS</RootNamespace>
+    <RootNamespace>Uniforms.Amplitude.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Uniforms.Amplitude.Forms.iOS</AssemblyName>
+    <AssemblyName>Uniforms.Amplitude.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

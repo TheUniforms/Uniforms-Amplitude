@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude", "Unifo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.Native.iOS", "Uniforms.Amplitude.Native.iOS\Uniforms.Amplitude.Native.iOS.csproj", "{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.Droid", "Uniforms.Amplitude.Droid\Uniforms.Amplitude.Droid.csproj", "{B66AFDD7-BE41-4F7F-9252-97F7B2850144}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.Native.Droid", "Uniforms.Amplitude.Native.Droid\Uniforms.Amplitude.Native.Droid.csproj", "{B66AFDD7-BE41-4F7F-9252-97F7B2850144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.Forms.iOS", "Uniforms.Amplitude.Forms.iOS\Uniforms.Amplitude.Forms.iOS.csproj", "{71B06257-6803-4DA9-B2D5-15839592E353}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.iOS", "Uniforms.Amplitude.iOS\Uniforms.Amplitude.iOS.csproj", "{71B06257-6803-4DA9-B2D5-15839592E353}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplTest.iOS", "AmplTest.iOS\AmplTest.iOS.csproj", "{DE9610D2-530E-435B-BF6D-7E3323C25295}"
 EndProject

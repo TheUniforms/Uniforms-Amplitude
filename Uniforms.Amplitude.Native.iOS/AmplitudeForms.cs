@@ -3,7 +3,7 @@ using System.Diagnostics;
 using Foundation;
 using Newtonsoft.Json.Linq;
 
-[assembly: Xamarin.Forms.Dependency (typeof (Uniforms.Amplitude.Forms.iOSAmplitude))]
+[assembly: Xamarin.Forms.Dependency (typeof (Uniforms.Amplitude.iOSAmplitude))]
 
 namespace Uniforms.Amplitude.Native.iOS
 {

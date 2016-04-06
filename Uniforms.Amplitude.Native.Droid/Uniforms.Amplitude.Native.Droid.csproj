@@ -6,11 +6,11 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{10368E6C-D01B-4462-8E8B-01FC667A7035};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{B66AFDD7-BE41-4F7F-9252-97F7B2850144}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Uniforms.Amplitude.Droid</RootNamespace>
+    <RootNamespace>Uniforms.Amplitude.Native.Droid</RootNamespace>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <AssemblyName>Uniforms.Amplitude.Droid</AssemblyName>
+    <AssemblyName>Uniforms.Amplitude.Native.Droid</AssemblyName>
     <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

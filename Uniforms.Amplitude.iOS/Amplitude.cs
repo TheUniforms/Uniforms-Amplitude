@@ -2,7 +2,7 @@
 using Foundation;
 using Newtonsoft.Json.Linq;
 
-namespace Uniforms.Amplitude.Forms.iOS
+namespace Uniforms.Amplitude.iOS
 {
     using NativeImplementation = Uniforms.Amplitude.Native.iOS.Amplitude;
 

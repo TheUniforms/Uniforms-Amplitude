@@ -26,7 +26,7 @@
 
     <!--Xamarin.Droid-->
     <file src="Uniforms.Amplitude.dll" target="lib\MonoAndroid10" />
-    <file src="Uniforms.Amplitude.Droid.dll" target="lib\MonoAndroid10" />
-    <file src="Uniforms.Amplitude.Droid.dll.mdb" target="lib\MonoAndroid10" />
+    <file src="Uniforms.Amplitude.Native.Droid.dll" target="lib\MonoAndroid10" />
+    <file src="Uniforms.Amplitude.Native.Droid.dll.mdb" target="lib\MonoAndroid10" />
   </files>
 </package>
