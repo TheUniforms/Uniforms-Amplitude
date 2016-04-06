@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Diagnostics;
 using Foundation;
 using Newtonsoft.Json.Linq;
 
-[assembly: Xamarin.Forms.Dependency (typeof (Uniforms.Amplitude.Forms.iOS.Amplitude))]
-
 namespace Uniforms.Amplitude.Forms.iOS
 {
-    using AmplitudeImplementation = Uniforms.Amplitude.iOS.Amplitude;
+    using NativeImplementation = Uniforms.Amplitude.iOS.Amplitude;
 
     public class Amplitude : IAmplitude
     {
         /// <summary>
-        /// Empty method just to reference the class in code.
+        /// Register platform implementation for using via `Uniforms.Amplitude`.
         /// </summary>
-        public static void Init() {}
+        public static void Register()
+        {
+            Uniforms.Amplitude.Amplitude.Register(typeof(Amplitude));
+        }
 
         /// <summary>
         /// Amplitude implementation instance for iOS.
         /// </summary>
-        AmplitudeImplementation impl;
+        NativeImplementation impl;
 
         #region IAmplitude implementation
 
@@ -72,8 +72,8 @@ namespace Uniforms.Amplitude.Forms.iOS
             }
 
             impl = String.IsNullOrEmpty(Name) ?
-                AmplitudeImplementation.Instance() :
-                AmplitudeImplementation.InstanceWithName(Name);
+                NativeImplementation.Instance() :
+                NativeImplementation.InstanceWithName(Name);
 
             if (String.IsNullOrEmpty(userId))
             {

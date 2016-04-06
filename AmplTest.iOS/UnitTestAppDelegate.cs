@@ -6,9 +6,6 @@ using Foundation;
 using UIKit;
 using MonoTouch.NUnit.UI;
 
-using Xamarin.Forms;
-using Uniforms.Amplitude;
-
 namespace AmplTest.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -42,14 +39,11 @@ namespace AmplTest.iOS
             // make the window visible
             window.MakeKeyAndVisible();
 
-            // init Xamarin.Forms
-            Xamarin.Forms.Forms.Init();
-
-            // reference Amplitude implementation
-            Uniforms.Amplitude.Forms.iOS.Amplitude.Init();
+            // register Amplitude implementation
+            Uniforms.Amplitude.Forms.iOS.Amplitude.Register();
 
             // init Amplitude
-            Amplitude.Instance.Initialize(Config.ApiKey);
+            Uniforms.Amplitude.Amplitude.Instance.Initialize(Config.ApiKey);
 			
             return true;
         }

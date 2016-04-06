@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 
 namespace Uniforms.Amplitude
 {
@@ -17,6 +16,16 @@ namespace Uniforms.Amplitude
         // Public static methods
         //
 
+        static Type _implementationClass;
+
+        public static void Register(Type implementationClass)
+        {
+            if (_implementationClass == null)
+            {
+                _implementationClass = implementationClass;
+            }
+        }
+
         public static IAmplitude Instance
         {
             get
@@ -29,7 +38,7 @@ namespace Uniforms.Amplitude
         {
             if (!_namedInstances.ContainsKey(name))
             {
-                var inst = DependencyService.Get<IAmplitude>();
+                var inst = Activator.CreateInstance(_implementationClass) as IAmplitude;
                 inst.Name = name;
                 _namedInstances.Add(name, inst);
             }
