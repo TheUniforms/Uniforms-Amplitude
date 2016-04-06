@@ -3,10 +3,62 @@ Amplitude for Xamarin
 
 [Amplitude](https://amplitude.com) API binding library for [Xamarin](https://www.xamarin.com).
 
+
 Usage
 -----
 
-...
+Here's a basic example for Xamarin.Forms:
+
+```csharp
+using Xamarin.Forms;
+using Uniforms.Amplitude;
+
+namespace MyApp
+{
+    public class MyApp : Application
+    {
+        public MyApp()
+        {
+            Amplitude.Instance.Initialize("--- Amplitude key here ---");
+
+            MainPage = new ContentPage
+            {
+                # ...
+            }
+        }
+
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+
+            Amplitude.Instance.LogEvent("Start");
+        }
+    }
+}
+```
+
+**Note!** You'll also need to add implementation reference in every platform specific application.
+
+For iOS:
+
+```csharp
+Uniforms.Amplitude.iOS.AmplitudeForms.Init()
+```
+
+For Android:
+
+```csharp
+Uniforms.Amplitude.Droid.AmplitudeForms.Init()
+```
+
+
+Troubleshooting
+---------------
+
+### System.NullReferenceException
+
+Having such exception on `Amplitude.Instance.Initialize()` means that implementation class was not referenced and was left out of assembly. See the **Note** section in the **Usage** chapter.
+
 
 Build iOS bindings
 ------------------
