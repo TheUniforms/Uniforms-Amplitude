@@ -49,7 +49,7 @@ namespace Uniforms.Amplitude.iOS
         {
             get
             {
-                return Native.InstanceName;
+                return Native.InstanceName ?? "";
             }
             set
             {

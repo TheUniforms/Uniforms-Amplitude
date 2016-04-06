@@ -52,6 +52,8 @@ namespace Uniforms.Amplitude.Droid
             {
                 Native.Initialize(_mainActivity, apiKey, userId);
             }
+
+            Native.EnableForegroundTracking(_mainActivity.Application);
         }
 
         public void LogEvent(string eventType, object properties = null, bool outOfSession = false)
@@ -124,7 +126,7 @@ namespace Uniforms.Amplitude.Droid
         {
             get
             {
-                return _name;
+                return _name ?? "";
             }
             set
             {
