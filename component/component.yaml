@@ -21,7 +21,7 @@ samples:
   iOS Sample: ../examples/AmplSample.iOS.sln
   Android Sample: ../examples/AmplSample.Droid.sln
 id: uniforms-amplitude
-summary: "Amplitude API cross-platform bindings library for Xamarin"
+summary: "A cross-platform Xamarin SDK for tracking events to Amplitude."
 publisher-url: http://05bit.com
 license: License.md
 #screenshots: 

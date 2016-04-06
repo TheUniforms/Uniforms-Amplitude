@@ -28,7 +28,7 @@ namespace AmplSample
 
         protected override void OnStart()
         {
-            Amplitude.Instance.Initialize("SET YOU KEY HERE");
+            Amplitude.Instance.Initialize("PASTE YOUR API KEY HERE");
 
             Amplitude.Instance.LogEvent("Start");
         }

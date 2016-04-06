@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Uniforms.Amplitude;
 
 namespace AmplSample.Droid
 {
