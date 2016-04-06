@@ -3,12 +3,7 @@
 *.jar
 
 # User-specific files
-*.suo
-*.user
-*.sln.docstates
-*.DS_Store
-*.userprefs
-*.jf
+Config.resx
 
 # Restored packages
 /packages
@@ -23,6 +18,13 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+
+*.suo
+*.user
+*.sln.docstates
+*.DS_Store
+*.userprefs
+*.jf
 
 *_i.c
 *_p.c
