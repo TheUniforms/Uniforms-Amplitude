@@ -92,4 +92,4 @@ protected override void OnCreate(Bundle bundle)
 More info
 ---------
 
-<https://github.com/TheUniforms/Uniforms-Amplitude>
+https://github.com/TheUniforms/Uniforms-Amplitude
