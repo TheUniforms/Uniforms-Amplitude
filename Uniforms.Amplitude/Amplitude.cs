@@ -9,6 +9,8 @@ namespace Uniforms.Amplitude
         // Instances
         //
 
+        static IAmplitude _defaultInstance;
+
         static readonly Dictionary<string, IAmplitude> _namedInstances =
             new Dictionary<string, IAmplitude>();
 
@@ -26,21 +28,40 @@ namespace Uniforms.Amplitude
             }
         }
 
+        /// <summary>
+        /// Gets the default Amplitude instance.
+        /// </summary>
         public static IAmplitude Instance
         {
             get
             {
-                return GetInstanceWithName("");
+                return GetInstanceWithName(null);
             }
         }
 
+        /// <summary>
+        /// Get Amplitude instance with identifier.
+        /// </summary>
         public static IAmplitude GetInstanceWithName(string name)
         {
+            // Default instance
+            if (String.IsNullOrEmpty(name))
+            {
+                if (_defaultInstance == null)
+                {
+                    _defaultInstance = Activator.CreateInstance(_implementationClass) as IAmplitude;
+                    _namedInstances.Add(_defaultInstance.InstanceName, _defaultInstance);
+                }
+
+                return _defaultInstance;
+            }
+
+            // Named instance
             if (!_namedInstances.ContainsKey(name))
             {
-                var inst = Activator.CreateInstance(_implementationClass) as IAmplitude;
-                inst.Name = name;
-                _namedInstances.Add(name, inst);
+                var instance = Activator.CreateInstance(_implementationClass) as IAmplitude;
+                instance.InstanceName = name;
+                _namedInstances.Add(name, instance);
             }
 
             return _namedInstances[name];

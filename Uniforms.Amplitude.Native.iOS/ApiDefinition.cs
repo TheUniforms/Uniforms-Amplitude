@@ -10,13 +10,13 @@ namespace Uniforms.Amplitude.Native.iOS
         /// Get Amplitude instance.
         /// </summary>
         [Static, Export ("instance")]
-        Amplitude Instance ();
+        Amplitude Instance();
 
         /// <summary>
         /// Get Amplitude instance with identifier.
         /// </summary>
         [Static, Export ("instanceWithName:")]
-        Amplitude InstanceWithName (string instanceName);
+        Amplitude InstanceWithName(string instanceName);
 
         /// <summary>
         /// Initializes the Amplitude with your Amplitude api key.
@@ -26,7 +26,7 @@ namespace Uniforms.Amplitude.Native.iOS
         /// "didFinishLaunchingWithOptions" method inside your app delegate.
         /// </description>
         [Export ("initializeApiKey:")]
-        void InitializeApiKey (string apiKey);
+        void InitializeApiKey(string apiKey);
 
         /// <summary>
         /// Initializes the Amplitude with your Amplitude api key and user ID.
@@ -36,7 +36,7 @@ namespace Uniforms.Amplitude.Native.iOS
         /// "didFinishLaunchingWithOptions" method inside your app delegate.
         /// </description>
         [Export ("initializeApiKey:userId:")]
-        void InitializeApiKey (string apiKey, string userId);
+        void InitializeApiKey(string apiKey, string userId);
 
         /// <summary>
         /// Tracks an event.
@@ -53,19 +53,19 @@ namespace Uniforms.Amplitude.Native.iOS
         /// (such as filling out a form, completing a level, or making a payment).
         /// </description>
         [Export ("logEvent:")]
-        void LogEvent (string eventType);
+        void LogEvent(string eventType);
 
         /// <summary>
         /// Tracks an event.
         /// </summary>
         [Export ("logEvent:withEventProperties:")]
-        void LogEvent (string eventType, NSDictionary properties);
+        void LogEvent(string eventType, NSDictionary properties);
 
         /// <summary>
         /// Tracks an event.
         /// </summary>
         [Export ("logEvent:withEventProperties:outOfSession:")]
-        void LogEvent (string eventType, NSDictionary properties, bool outOfSession);
+        void LogEvent(string eventType, NSDictionary properties, bool outOfSession);
 
         /// <summary>
         /// Tracks revenue.
@@ -75,19 +75,19 @@ namespace Uniforms.Amplitude.Native.iOS
         /// Method takes in an NSNumber with the dollar amount of the sale as the only argument.
         /// </description>
         [Export ("logRevenue:")]
-        void LogRevenue (NSNumber amount);
+        void LogRevenue(NSNumber amount);
 
         /// <summary>
         /// Tracks revenue with product identifier.
         /// </summary>
         [Export ("logRevenue:quantity:price:")]
-        void LogRevenue (string productIdentifier, nint quantity, NSNumber price);
+        void LogRevenue(string productIdentifier, nint quantity, NSNumber price);
 
         /// <summary>
         /// Tracks revenue with product identifier and transaction receipt.
         /// </summary>
         [Export ("logRevenue:quantity:price:receipt:")]
-        void LogRevenue (string productIdentifier, nint quantity, NSNumber price, NSData receipt);
+        void LogRevenue(string productIdentifier, nint quantity, NSNumber price, NSData receipt);
 
 /*!
  @method
@@ -112,8 +112,7 @@ namespace Uniforms.Amplitude.Native.iOS
         /// Property keys must be strings and values must be serializable.
         /// </description>
         [Export ("setUserProperties:")]
-        void SetUserProperties (NSDictionary userProperties);
-
+        void SetUserProperties(NSDictionary userProperties);
 
         /// <summary>
         /// Adds or replaces properties that are tracked on the user level.
@@ -123,13 +122,13 @@ namespace Uniforms.Amplitude.Native.iOS
         /// Property keys must be strings and values must be serializable.
         /// </description>
         [Export ("setUserProperties:replace:")]
-        void SetUserProperties (NSDictionary userProperties, bool replace);
+        void SetUserProperties(NSDictionary userProperties, bool replace);
 
         /// <summary>
         /// Clears all properties that are tracked on the user level.
         /// </summary>
         [Export ("clearUserProperties")]
-        void ClearUserProperties ();
+        void ClearUserProperties();
 
         /// <summary>
         /// Manually forces the class to immediately upload all queued events.
@@ -140,29 +139,29 @@ namespace Uniforms.Amplitude.Native.iOS
         /// the class to immediately upload all queued events.
         /// </description>
         [Export ("uploadEvents")]
-        void UploadEvents ();
+        void UploadEvents();
 
         /// <summary>
-        /// Sets the userId.
+        /// Gets ot sets the userId.
         /// </summary>
         /// <description>
         /// If your app has its own login system that you want to track users with,
         /// you can set the userId.
         /// </description>
-        [Export ("setUserId:")]
-        void SetUserId (string userId);
+        [Export ("userId")]
+        string UserId { [NullAllowed] get; set; }
 
         /// <summary>
-        /// Sets the deviceId.
+        /// Gets or sets the deviceId.
         /// </summary>
         /// <description>
         /// If your app has its own system for tracking devices, you can set the deviceId.
         /// </description>
-        [Export ("setDeviceId:")]
-        void SetDeviceId (string deviceId);
+        [Export ("deviceId")]
+        string DeviceId { get; set; }
 
         /// <summary>
-        /// Enables tracking opt out.
+        /// Gets or sets tracking opt out.
         /// </summary>
         /// <description>
         /// If the user wants to opt out of all tracking, use this method to enable opt
@@ -170,8 +169,20 @@ namespace Uniforms.Amplitude.Native.iOS
         /// sent to the server. Calling this method again with enabled set to NO will
         /// turn tracking back on for the user.
         /// </description>
-        [Export ("setOptOut:")]
-        void SetOptOut (bool enabled);
+        [Export ("optOut")]
+        bool OptOut { get; set; }
+
+        /// <summary>
+        /// Gets the instance name.
+        /// </summary>
+        [Export ("instanceName")]
+        string InstanceName { get; }
+
+        /// <summary>
+        /// Gets the property list path.
+        /// </summary>
+        [Export ("propertyListPath")]
+        string PropertyListPath { get; }
 
         /// <summary>
         /// Disables sending logged events to Amplitude servers.
@@ -185,7 +196,7 @@ namespace Uniforms.Amplitude.Native.iOS
         /// been queued while offline.
         /// </description>
         [Export ("setOffline:")]
-        void SetOffline (bool offline);
+        void SetOffline(bool offline);
 
         /// <summary>
         /// Enables location tracking.
@@ -196,7 +207,7 @@ namespace Uniforms.Amplitude.Native.iOS
         /// the user for location permissions itself, this must be done by your app.
         /// </description>
         [Export ("enableLocationListening")]
-        void EnableLocationListening ();
+        void EnableLocationListening();
 
         /// <summary>
         /// Disables location tracking.
@@ -206,7 +217,7 @@ namespace Uniforms.Amplitude.Native.iOS
         /// DisableLocationListening() before you call InitializeApiKey().
         /// </description>
         [Export ("disableLocationListening")]
-        void DisableLocationListening ();
+        void DisableLocationListening();
 
         /// <summary>
         /// Forces the SDK to update with the user's last known location if possible.
@@ -216,10 +227,10 @@ namespace Uniforms.Amplitude.Native.iOS
         /// location, call updateLocation.
         /// </description>
         [Export ("updateLocation")]
-        void UpdateLocation ();
+        void UpdateLocation();
 
         /// <summary>
-        ///  Uses advertisingIdentifier instead of identifierForVendor as the device ID.
+        /// Uses advertisingIdentifier instead of identifierForVendor as the device ID.
         /// </summary>
         /// <description>
         /// Apple prohibits the use of advertisingIdentifier if your app does not have
@@ -227,20 +238,13 @@ namespace Uniforms.Amplitude.Native.iOS
         /// anlaytics data. Must be called before InitializeApiKey() is called.
         /// </description>
         [Export ("useAdvertisingIdForDeviceId")]
-        void UseAdvertisingIdForDeviceId ();
+        void UseAdvertisingIdForDeviceId();
 
         /// <summary>
         /// Debugging method to find out how many events are being stored locally on the device.
         /// </summary>
         [Export ("printEventsCount")]
-        void PrintEventsCount ();
-
-        /// <summary>
-        /// The deviceId is an identifier used by Amplitude to determine unique users when
-        /// no userId has been set.
-        /// </summary>
-        [Export ("getDeviceId")]
-        string GetDeviceId ();
+        void PrintEventsCount();
     }
 }
 

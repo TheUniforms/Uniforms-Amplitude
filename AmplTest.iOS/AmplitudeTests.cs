@@ -8,15 +8,23 @@ namespace AmplTest.iOS
     public class AmplitudeTests
     {
         [Test]
-        public void Pass()
+        public void InstanceName()
         {
-            Assert.True(true);
+            Assert.True(Amplitude.Instance.InstanceName != null);
         }
 
         [Test]
         public void LogEvent()
         {
-            Amplitude.Instance.LogEvent("Test");
+            Amplitude.Instance.LogEvent("TestLogEvent");
+        }
+
+        [Test]
+        public void OfflineMode()
+        {
+            Amplitude.Instance.Offline = true;
+
+            Amplitude.Instance.Offline = false;
         }
 
         [Test]
@@ -25,13 +33,11 @@ namespace AmplTest.iOS
             Amplitude.Instance.SetUserProperties(new {
                 Role = "Tester"
             });
-
             var props = new {
                 Type = "StartChat",
                 MaxUsers = 10
             };
-            Amplitude.Instance.LogEvent("Test", props);
-
+            Amplitude.Instance.LogEvent("TestLogEventWithProperties", props);
             Amplitude.Instance.ClearUserProperties();
         }
 
@@ -41,10 +47,32 @@ namespace AmplTest.iOS
             Amplitude.Instance.SetUserProperties(new {
                 Role = "Tester"
             });
-
-            Amplitude.Instance.LogEvent("Test");
-
+            Amplitude.Instance.LogEvent("TestLogEventWithUserProperties");
             Amplitude.Instance.ClearUserProperties();
+        }
+
+        [Test]
+        public void SetAmplitudeProperties()
+        {
+            var deviceId = Amplitude.Instance.DeviceId;
+            var userId = Amplitude.Instance.UserId;
+
+            Amplitude.Instance.UserId = "111111111";
+            Amplitude.Instance.DeviceId = "111111111";
+
+            Amplitude.Instance.LogEvent("TestAmplitudeProperties");
+            Amplitude.Instance.UploadEvents();
+
+            Amplitude.Instance.DeviceId = deviceId;
+            Amplitude.Instance.UserId = userId;
+        }
+
+        [Test]
+        public void LocationUpdate()
+        {
+            Amplitude.Instance.EnableLocationListening();
+            Amplitude.Instance.UpdateLocation();
+            Amplitude.Instance.DisableLocationListening();
         }
     }
 }

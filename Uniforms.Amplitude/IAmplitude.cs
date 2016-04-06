@@ -8,9 +8,42 @@ namespace Uniforms.Amplitude
         /// Name to initialize Amplitude instance with.
         /// </summary>
         /// <description>
-        /// Must be set before calling the Initialize() method or just left empty.
+        /// Must be set *before* calling the Initialize() method or just left empty.
         /// </description>
-        string Name { get; set; }
+        string InstanceName { get; set; }
+
+        /// <summary>
+        /// Gets ot sets the userId.
+        /// </summary>
+        /// <description>
+        /// If your app has its own login system that you want to track users with,
+        /// you can set the userId.
+        /// </description>
+        string UserId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the deviceId.
+        /// </summary>
+        /// <description>
+        /// If your app has its own system for tracking devices, you can set the deviceId.
+        /// </description>
+        string DeviceId { get; set; }
+
+        /// <summary>
+        /// Gets or sets tracking opt out.
+        /// </summary>
+        /// <description>
+        /// If the user wants to opt out of all tracking, use this method to enable opt
+        /// out for them. Once opt out is enabled, no events will be saved locally or
+        /// sent to the server. Calling this method again with enabled set to NO will
+        /// turn tracking back on for the user.
+        /// </description>
+        bool OptOut { get; set; }
+
+        /// <summary>
+        /// Disables sending logged events to Amplitude servers.
+        /// </summary>
+        bool Offline { set; }
 
         /// <summary>
         /// Initializes the Amplitude with your Amplitude api key and optional user ID.
@@ -45,17 +78,65 @@ namespace Uniforms.Amplitude
         /// <summary>
         /// Tracks revenue with product identifier and optional transaction receipt.
         /// </summary>
-        void LogRevenue (string productIdentifier, int quantity, double price, byte[] receipt = null);
+        void LogRevenue(string productIdentifier, int quantity, double price, byte[] receipt = null);
 
         /// <summary>
         /// Adds or replaces properties that are tracked on the user level.
         /// </summary>
-        void SetUserProperties (object userProperties, bool replace = false);
+        void SetUserProperties(object userProperties, bool replace = false);
 
         /// <summary>
         /// Clears all properties that are tracked on the user level.
         /// </summary>
-        void ClearUserProperties ();
+        void ClearUserProperties();
+
+        /// <summary>
+        /// Manually forces the class to immediately upload all queued events.
+        /// </summary>
+        void UploadEvents();
+
+        /// <summary>
+        /// Enables location tracking.
+        /// </summary>
+        /// <description>
+        /// If the user has granted your app location permissions, the SDK
+        /// will also grab the location of the user. Amplitude will never prompt
+        /// the user for location permissions itself, this must be done by your app.
+        /// </description>
+        void EnableLocationListening();
+
+        /// <summary>
+        /// Disables location tracking.
+        /// </summary>
+        /// <description>
+        /// If you want location tracking disabled on startup of the app, call
+        /// DisableLocationListening() before you call InitializeApiKey().
+        /// </description>
+        void DisableLocationListening();
+
+        /// <summary>
+        /// Forces the SDK to update with the user's last known location if possible.
+        /// </summary>
+        /// <description>
+        /// If you want to manually force the SDK to update with the user's last known
+        /// location, call updateLocation.
+        /// </description>
+        void UpdateLocation();
+
+        /// <summary>
+        /// Uses advertisingIdentifier instead of identifierForVendor as the device ID.
+        /// </summary>
+        /// <description>
+        /// Apple prohibits the use of advertisingIdentifier if your app does not have
+        /// advertising. Useful for tying together data from advertising campaigns to
+        /// anlaytics data. Must be called before InitializeApiKey() is called.
+        /// </description>
+        void UseAdvertisingIdForDeviceId();
+
+        /// <summary>
+        /// Debugging method to find out how many events are being stored locally on the device.
+        /// </summary>
+        void PrintEventsCount();
     }
 }
 

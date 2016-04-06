@@ -17,25 +17,43 @@ namespace Uniforms.Amplitude.iOS
         }
 
         /// <summary>
-        /// Amplitude implementation instance for iOS.
+        /// Amplitude native implementation instance for iOS.
         /// </summary>
-        NativeImplementation impl;
+        public NativeImplementation Native
+        {
+            get
+            {
+                if (_native == null)
+                {
+                    _native = String.IsNullOrEmpty(_name) ?
+                        NativeImplementation.Instance() :
+                        NativeImplementation.InstanceWithName(InstanceName);
+                }
+
+                return _native;
+            }
+        }
+        NativeImplementation _native;
 
         #region IAmplitude implementation
 
         /// <summary>
-        /// Name to initialize Amplitude instance with. Must be set before
-        /// Initialize() call.
+        /// Name to initialize Amplitude instance with. 
         /// </summary>
-        public string Name
+        /// <description>
+        /// Must be set before Initialize() call. And if name is not set,
+        /// trying to get name will initialize default native instance!
+        /// So it will always return real native instance name.
+        /// </description>
+        public string InstanceName
         {
             get
             {
-                return _name;
+                return Native.InstanceName;
             }
             set
             {
-                if (impl != null)
+                if (_native != null)
                 {
                     throw new Exception("Amplitude instance is already initialized!");
                 }
@@ -45,6 +63,40 @@ namespace Uniforms.Amplitude.iOS
         }
         string _name;
 
+        /// <summary>
+        /// Gets ot sets the userId.
+        /// </summary>
+        public string UserId
+        {
+            get { return _native.UserId; }
+            set { _native.UserId = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the deviceId.
+        /// </summary>
+        public string DeviceId
+        {
+            get { return _native.DeviceId; }
+            set { _native.DeviceId = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets tracking opt out.
+        /// </summary>
+        public bool OptOut
+        {
+            get { return _native.OptOut; }
+            set { _native.OptOut = value; }
+        }
+
+        /// <summary>
+        /// Disables sending logged events to Amplitude servers.
+        /// </summary>
+        public bool Offline
+        {
+            set { _native.SetOffline(value); }
+        }
 
         /// <summary>
         /// Tracks an event.
@@ -53,11 +105,11 @@ namespace Uniforms.Amplitude.iOS
         {
             if (properties == null)
             {
-                impl.LogEvent(eventType);
+                _native.LogEvent(eventType);
             }
             else
             {
-                impl.LogEvent(eventType, GetProperties(properties), outOfSession);
+                _native.LogEvent(eventType, GetProperties(properties), outOfSession);
             }
         }
 
@@ -66,22 +118,13 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void Initialize(string apiKey, string userId = null)
         {
-            if (impl != null)
-            {
-                throw new Exception("Amplitude instance is already initialized!");
-            }
-
-            impl = String.IsNullOrEmpty(Name) ?
-                NativeImplementation.Instance() :
-                NativeImplementation.InstanceWithName(Name);
-
             if (String.IsNullOrEmpty(userId))
             {
-                impl.InitializeApiKey(apiKey);
+                Native.InitializeApiKey(apiKey);
             }
             else
             {
-                impl.InitializeApiKey(apiKey, userId);
+                Native.InitializeApiKey(apiKey, userId);
             }
         }
 
@@ -90,7 +133,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void LogRevenue(double amount)
         {
-            impl.LogRevenue(NSNumber.FromDouble(amount));
+            _native.LogRevenue(NSNumber.FromDouble(amount));
         }
 
         /// <summary>
@@ -100,13 +143,13 @@ namespace Uniforms.Amplitude.iOS
         {
             if (receipt != null)
             {
-                impl.LogRevenue(productIdentifier, (nint)quantity,
+                _native.LogRevenue(productIdentifier, (nint)quantity,
                     NSNumber.FromDouble(price),
                     NSData.FromArray(receipt));
             }
             else
             {
-                impl.LogRevenue(productIdentifier, (nint)quantity,
+                _native.LogRevenue(productIdentifier, (nint)quantity,
                     NSNumber.FromDouble(price));
             }
         }
@@ -116,7 +159,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void SetUserProperties(object userProperties, bool replace = false)
         {
-            impl.SetUserProperties(GetProperties(userProperties), replace);
+            _native.SetUserProperties(GetProperties(userProperties), replace);
         }
 
         /// <summary>
@@ -124,7 +167,55 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void ClearUserProperties()
         {
-            impl.ClearUserProperties();
+            _native.ClearUserProperties();
+        }
+
+        /// <summary>
+        /// Manually forces the class to immediately upload all queued events.
+        /// </summary>
+        public void UploadEvents()
+        {
+            _native.UploadEvents();
+        }
+
+        /// <summary>
+        /// Enables location tracking.
+        /// </summary>
+        public void EnableLocationListening()
+        {
+            _native.EnableLocationListening();
+        }
+
+        /// <summary>
+        /// Disables location tracking.
+        /// </summary>
+        public void DisableLocationListening()
+        {
+            _native.DisableLocationListening();
+        }
+
+        /// <summary>
+        /// Forces the SDK to update with the user's last known location if possible.
+        /// </summary>
+        public void UpdateLocation()
+        {
+            _native.UpdateLocation();
+        }
+
+        /// <summary>
+        /// Uses advertisingIdentifier instead of identifierForVendor as the device ID.
+        /// </summary>
+        public void UseAdvertisingIdForDeviceId()
+        {
+            _native.UseAdvertisingIdForDeviceId();
+        }
+
+        /// <summary>
+        /// Debugging method to find out how many events are being stored locally on the device.
+        /// </summary>
+        public void PrintEventsCount()
+        {
+            _native.PrintEventsCount();
         }
 
         #endregion
