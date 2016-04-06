@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 [assembly: Xamarin.Forms.Dependency (typeof (Uniforms.Amplitude.Forms.iOSAmplitude))]
 
-namespace Uniforms.Amplitude.iOS
+namespace Uniforms.Amplitude.Native.iOS
 {
     [Preserve(AllMembers = true)]
     public class FormsAmplitude : IAmplitude

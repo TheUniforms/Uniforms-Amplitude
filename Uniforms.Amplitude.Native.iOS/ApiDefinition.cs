@@ -1,7 +1,7 @@
 ﻿using System;
 using Foundation;
 
-namespace Uniforms.Amplitude.iOS
+namespace Uniforms.Amplitude.Native.iOS
 {
     [BaseType (typeof (NSObject))]
     interface Amplitude

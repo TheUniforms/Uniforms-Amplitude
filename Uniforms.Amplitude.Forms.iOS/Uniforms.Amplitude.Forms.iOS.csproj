@@ -50,9 +50,9 @@
       <Project>{CAA89337-1742-4881-B6F0-D32BD079CD2D}</Project>
       <Name>Uniforms.Amplitude</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Uniforms.Amplitude.iOS\Uniforms.Amplitude.iOS.csproj">
+    <ProjectReference Include="..\Uniforms.Amplitude.Native.iOS\Uniforms.Amplitude.Native.iOS.csproj">
       <Project>{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}</Project>
-      <Name>Uniforms.Amplitude.iOS</Name>
+      <Name>Uniforms.Amplitude.Native.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

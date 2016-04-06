@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude", "Uniforms.Amplitude\Uniforms.Amplitude.csproj", "{CAA89337-1742-4881-B6F0-D32BD079CD2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.iOS", "Uniforms.Amplitude.iOS\Uniforms.Amplitude.iOS.csproj", "{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.Native.iOS", "Uniforms.Amplitude.Native.iOS\Uniforms.Amplitude.Native.iOS.csproj", "{B5C29BEE-C71D-46CF-A952-EC29FC0DF631}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uniforms.Amplitude.Droid", "Uniforms.Amplitude.Droid\Uniforms.Amplitude.Droid.csproj", "{B66AFDD7-BE41-4F7F-9252-97F7B2850144}"
 EndProject
