@@ -1,6 +1,89 @@
-#!/bin/sh
+#!/bin/bash
+
+# build.sh -a   build all
+# build.sh -n   build NuGet
+# build.sh -c   build component
+# build.sh -h   print help
 
 BUILD_TOOL='/Applications/Xamarin Studio.app/Contents/MacOS/mdtool'
+NUGET_TOOL=`which nuget`
+MONO_TOOL=`which mono`
+PROJECT_BASE='Uniforms.Amplitude'
 OUTPUT_DIR='lib'
+COMPONENT_DIR='component'
 
-exec "$BUILD_TOOL" build -c:"Release"
+build_nuget=false
+build_all=false
+build_component=false
+need_help=false
+
+#################
+# Parse options #
+#################
+
+if [ -z "$1" ] ; then
+   need_help=true
+fi
+
+# OPTIND=1 # Reset in case getopts has been used previously in the shell.
+
+while getopts "h?anc" opt; do
+    case "$opt" in
+    h|\?)
+        need_help=true
+        ;;
+    a)  build_all=true
+        build_nuget=true
+        build_component=true
+        ;;
+    c)  build_nuget=true
+        build_component=true
+        ;;
+    n)  build_nuget=true
+        ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "$1" = "--" ] && shift
+
+#############
+# Show help #
+#############
+
+if [ "$need_help" = true ] ; then
+    echo "build.sh -a   build all"
+    echo "build.sh -n   build NuGet"
+    echo "build.sh -c   build component"
+    echo "build.sh -h   print help"
+    exit 0
+fi
+
+##################
+# Build solution #
+##################
+
+if [ "$build_all" = true ] ; then
+    "$BUILD_TOOL" build -c:"Release"
+fi
+
+#############################
+# Build NuGet and component #
+#############################
+
+if [ "$build_nuget" = true ] ; then
+    rm -v $OUTPUT_DIR/*.dll* $OUTPUT_DIR/*.nupkg
+
+    cp -v $PROJECT_BASE.Droid/bin/Release/*.dll* $OUTPUT_DIR 2> /dev/null
+    cp -v $PROJECT_BASE.Native.Droid/bin/Release/*.dll* $OUTPUT_DIR 2> /dev/null
+    cp -v $PROJECT_BASE.iOS/bin/Release/*.dll* $OUTPUT_DIR 2> /dev/null
+    cp -v $PROJECT_BASE.Native.iOS/bin/Release/*.dll* $OUTPUT_DIR 2> /dev/null
+    cp -v $PROJECT_BASE/bin/Release/*.dll* $OUTPUT_DIR 2> /dev/null
+
+    "$NUGET_TOOL" pack -OutputDirectory $OUTPUT_DIR
+fi
+
+if [ "$build_component" = true ] ; then
+    cd $COMPONENT_DIR && "$MONO_TOOL" xamarin-component.exe package
+fi
