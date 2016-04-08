@@ -1,7 +1,17 @@
 Amplitude for Xamarin
 =====================
 
-[Amplitude](https://amplitude.com) API binding library for [Xamarin](https://www.xamarin.com).
+A cross-platform  [Xamarin](https://www.xamarin.com) SDK for tracking events to [Amplitude](https://amplitude.com).
+
+
+Installation
+------------
+
+Install Uniforms.Amplitude as component fron Xamarin Components store:
+https://components.xamarin.com/view/uniforms-amplitude
+
+**Trial version doesn't have limitations at the moment. But please consider purchasing to support further development of component and other libs!**
+
 
 
 Basic usage
