@@ -2,6 +2,8 @@
 
 [**Amplitude**](https://amplitude.com) is a platform for web & mobile analytics that helps you drive retention, engagement, and conversion. And this component provides cross-platform Amplitude API bindings for Xamarin.
 
+You will need an Amplitude account and application registered at Amplitude to use this component.
+
 Plase note, the component developers aren't affiliated with Amplitude!
 
 
