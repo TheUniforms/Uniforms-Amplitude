@@ -14,7 +14,7 @@ libraries:
 icons: 
   - uniforms-amplitude_128x128.png
   - uniforms-amplitude_512x512.png
-version: "0.9"
+version: "0.9.1"
 details: Details.md
 getting-started: GettingStarted.md
 samples: 
@@ -22,7 +22,7 @@ samples:
   Android Sample: ../examples/AmplSample.Droid.sln
 id: uniforms-amplitude
 summary: "A cross-platform Xamarin SDK for tracking events to Amplitude."
-publisher-url: http://05bit.com
+publisher-url: https://github.com/TheUniforms/Uniforms-Amplitudde
 license: License.md
 #screenshots: 
 #  - screenshots/screenshot1.png

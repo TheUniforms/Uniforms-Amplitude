@@ -7,10 +7,11 @@ A cross-platform  [Xamarin](https://www.xamarin.com) SDK for tracking events to 
 Installation
 ------------
 
-Install Uniforms.Amplitude as component fron Xamarin Components store:
+Install Uniforms.Amplitude as component from Xamarin Components store:
+
 https://components.xamarin.com/view/uniforms-amplitude
 
-**Trial version doesn't have limitations at the moment. But please consider purchasing to support further development of component and other libs!**
+**Trial version doesn't have any limitations at the moment. But please consider purchasing to support further development of component and other libraries!**
 
 
 
