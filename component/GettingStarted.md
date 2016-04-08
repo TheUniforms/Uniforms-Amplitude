@@ -1,6 +1,6 @@
 # Getting Started with Uniforms.Amplitude
 
-The component provides cross-platform [Amplitude](https://amplitude.com) API bindings for [Xamarin](https://www.xamarin.com)
+[**Amplitude**](https://amplitude.com) is a platform for web & mobile analytics that helps you drive retention, engagement, and conversion. And this component provides cross-platform Amplitude API bindings for Xamarin.
 
 Plase note, the component developers aren't affiliated with Amplitude!
 
@@ -10,25 +10,19 @@ Quickstart
 
 1. Initialize platform specific classes:
 
-For **iOS** application in `UIApplicationDelegate.FinishedLaunching()`:
+    For **iOS** application in `UIApplicationDelegate.FinishedLaunching()`:
 
-```csharp
-Uniforms.Amplitude.iOS.Amplitude.Register();
-```
+    `Uniforms.Amplitude.iOS.Amplitude.Register();`
 
-For **Android** application in `OnCreate()` of main activity:
+    For **Android** application in `OnCreate()` of main activity:
 
-```csharp
-Uniforms.Amplitude.Droid.Amplitude.Register(this);
-```
+    `Uniforms.Amplitude.Droid.Amplitude.Register(this);`
 
 2. Initialize Amplitude with API key:
 
-```csharp
-Amplitude.Instance.Initialize("PASTE YOUR API KEY HERE");
-```
+    `Amplitude.Instance.Initialize("PASTE YOUR API KEY HERE");`
 
-3. Send events to Amplitude:
+3. Start sending events to Amplitude:
 
 ```csharp
 using Uniforms.Amplitude;
@@ -89,7 +83,12 @@ protected override void OnCreate(Bundle bundle)
 }
 ```
 
+
 More info
 ---------
 
+**API reference**:  
+https://components.xamarin.com/view/uniforms-amplitude
+
+**Uniforms.Amplitude on GitHub**:  
 https://github.com/TheUniforms/Uniforms-Amplitude

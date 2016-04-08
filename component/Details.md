@@ -1,4 +1,31 @@
-# Uniforms.Amplitude details
+# About Uniforms.Amplitude
+
+[**Amplitude**](https://amplitude.com) is a platform for web & mobile analytics that helps you drive retention, engagement, and conversion. And this component provides cross-platform Amplitude API bindings for Xamarin.
+
+Plase note, the component developers aren't affiliated with Amplitude!
+
+
+Overview
+--------
+
+Tracking events with Amplitude is simple as that:
+
+```csharp
+Amplitude.Instance.LogEvent("ClickPostButton");
+
+// ...
+
+Amplitude.Instance.LogEvent("PostAdded");
+
+// ...
+```
+
+It's really easy to add Amplitude support to your Xamarin projects, just a couple of lines of code,
+see the [Getting Started](https://components.xamarin.com/gettingstarted/uniforms-amplitude) page!
+
+
+Details
+-------
 
 Cross-platform interface is available via ``Uniforms.Amplitude`` static class:
 
