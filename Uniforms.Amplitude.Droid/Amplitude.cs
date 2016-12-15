@@ -54,6 +54,7 @@ namespace Uniforms.Amplitude.Droid
             }
 
             Native.EnableForegroundTracking(_mainActivity.Application);
+			Native.DisableLocationListening();
         }
 
         public void LogEvent(string eventType, object properties = null, bool outOfSession = false)
