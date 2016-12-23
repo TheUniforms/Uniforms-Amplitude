@@ -14,6 +14,8 @@ namespace AmplSample.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+			Uniforms.Amplitude.iOS.Amplitude.Register();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
