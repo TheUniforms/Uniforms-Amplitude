@@ -219,7 +219,7 @@ Having such exception on `Amplitude.Instance.Initialize()` means that implementa
 
 Make sure you've added the `INTERNET` permission.
 
-### Conflict with ModernHttpClient library on Android.
+### Conflict with ModernHttpClient library on Android
 
 You may get such error while compiling: `Error: java.lang.IllegalArgumentException: already added : Lokio/AsyncTimeout;`
 
