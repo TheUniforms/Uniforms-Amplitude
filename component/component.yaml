@@ -2,6 +2,8 @@
 ---
 packages:
   "": Newtonsoft.Json, Version=9.0.1
+  android:
+    - Square.OkHttp3, Version=3.4.1.1
 libraries: 
   ios-unified:
     - ../lib/Uniforms.Amplitude.dll
@@ -14,7 +16,7 @@ libraries:
 icons: 
   - uniforms-amplitude_128x128.png
   - uniforms-amplitude_512x512.png
-version: "0.9.2"
+version: "0.9.3"
 details: Details.md
 getting-started: GettingStarted.md
 samples: 

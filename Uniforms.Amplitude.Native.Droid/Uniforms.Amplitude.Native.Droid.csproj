@@ -35,15 +35,6 @@
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Trial|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Trial</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <ConsolePause>false</ConsolePause>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -75,6 +66,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\amplitude-android-2.13.0-with-dependencies.jar" />
+    <EmbeddedJar Include="Jars\amplitude-android-2.13.2.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="Jars\okhttp-3.5.0.jar" />
+    <ReferenceJar Include="Jars\okio-1.11.0.jar" />
   </ItemGroup>
 </Project>

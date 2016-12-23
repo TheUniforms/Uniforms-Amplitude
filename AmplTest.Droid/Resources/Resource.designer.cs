@@ -26,6 +26,7 @@ namespace AmplTest.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::ModernHttpClient.Resource.String.library_name = global::AmplTest.Droid.Resource.String.library_name;
 			global::Uniforms.Amplitude.Droid.Resource.String.library_name = global::AmplTest.Droid.Resource.String.library_name;
 		}
 		
