@@ -35,7 +35,7 @@ namespace AmplTest.iOS
             runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
 
             window.RootViewController = new UINavigationController(runner.GetViewController());
-			
+            
             // make the window visible
             window.MakeKeyAndVisible();
 
@@ -44,7 +44,7 @@ namespace AmplTest.iOS
 
             // init Amplitude
             Uniforms.Amplitude.Amplitude.Instance.Initialize(Config.ApiKey);
-			
+            
             return true;
         }
     }

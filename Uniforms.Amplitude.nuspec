@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Uniforms.Amplitude</id>
-    <version>0.9.5</version>
-    <title>Amplitude for Xamarin</title>
+    <id>Uniforms.Amplitude.PCL</id>
+    <version>0.9.5.2</version>
+    <title>Amplitude for Xamarin, PCL</title>
     <authors>Alexey Kinëv</authors>
     <owners>Alexey Kinëv</owners>
     <description>Amplitude API cross-platform bindings library for Xamarin</description>
@@ -15,22 +15,28 @@
     </dependencies>
   </metadata>
   <files>
-    <!--Portable-->
+    <!-- Profile78 -->
     <file src="lib/Uniforms.Amplitude.dll" target="lib/portable-net45+win+wp80+MonoAndroid10+xamarinios10" />
-    <!-- <file src="lib/Uniforms.Amplitude.dll.mdb" target="lib\portable-net45+win+wp80+MonoAndroid10+xamarinios10" /> -->
 
-    <!--Xamarin.iOS-->
+    <!-- Profile259 -->
+    <file src="lib/Uniforms.Amplitude.dll" target="lib/portable-net45+win8+wpa81+wp8+MonoAndroid10+xamarinios10" />
+
+    <!-- Xamarin.iOS -->
+    <!--
     <file src="lib/Uniforms.Amplitude.dll" target="lib/xamarinios10" />
     <file src="lib/Uniforms.Amplitude.iOS.dll" target="lib/xamarinios10" />
     <file src="lib/Uniforms.Amplitude.iOS.dll.mdb" target="lib/xamarinios10" />
     <file src="lib/Uniforms.Amplitude.Native.iOS.dll" target="lib/xamarinios10" />
     <file src="lib/Uniforms.Amplitude.Native.iOS.dll.mdb" target="lib/xamarinios10" />
+    -->
 
-    <!--Xamarin.Droid-->
+    <!-- Xamarin.Droid -->
+    <!--
     <file src="lib/Uniforms.Amplitude.dll" target="lib/MonoAndroid10" />
     <file src="lib/Uniforms.Amplitude.Droid.dll" target="lib/MonoAndroid10" />
     <file src="lib/Uniforms.Amplitude.Droid.dll.mdb" target="lib/MonoAndroid10" />
     <file src="lib/Uniforms.Amplitude.Native.Droid.dll" target="lib/MonoAndroid10" />
     <file src="lib/Uniforms.Amplitude.Native.Droid.dll.mdb" target="lib/MonoAndroid10" />
+    -->
   </files>
 </package>

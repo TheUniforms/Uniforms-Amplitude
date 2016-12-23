@@ -1,6 +1,6 @@
 #/bin/sh
 
-VERSION=0.9.5
+VERSION=0.9.5.2
 
 # mono xamarin-component.exe package
 # rm ~/Library/Caches/Xamarin/Components/uniforms-amplitude-*.xam

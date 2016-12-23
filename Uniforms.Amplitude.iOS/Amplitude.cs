@@ -68,8 +68,8 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public string UserId
         {
-            get { return _native.UserId; }
-            set { _native.UserId = value; }
+            get { return (_native != null) ? _native.UserId : null; }
+            set { if (_native != null) _native.UserId = value; }
         }
 
         /// <summary>
@@ -77,8 +77,8 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public string DeviceId
         {
-            get { return _native.DeviceId; }
-            set { _native.DeviceId = value; }
+            get { return (_native != null) ? _native.DeviceId : null; }
+            set { if (_native != null) _native.DeviceId = value; }
         }
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public bool OptOut
         {
-            get { return _native.OptOut; }
-            set { _native.OptOut = value; }
+            get { return (_native != null) ? _native.OptOut : true; }
+            set { if (_native != null) _native.OptOut = value; }
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public bool Offline
         {
-            set { _native.SetOffline(value); }
+            set { _native?.SetOffline(value); }
         }
 
         /// <summary>
@@ -105,11 +105,11 @@ namespace Uniforms.Amplitude.iOS
         {
             if (properties == null)
             {
-                _native.LogEvent(eventType);
+                _native?.LogEvent(eventType);
             }
             else
             {
-                _native.LogEvent(eventType, GetProperties(properties), outOfSession);
+                _native?.LogEvent(eventType, GetProperties(properties), outOfSession);
             }
         }
 
@@ -120,11 +120,11 @@ namespace Uniforms.Amplitude.iOS
         {
             if (String.IsNullOrEmpty(userId))
             {
-                Native.InitializeApiKey(apiKey);
+                Native?.InitializeApiKey(apiKey);
             }
             else
             {
-                Native.InitializeApiKey(apiKey, userId);
+                Native?.InitializeApiKey(apiKey, userId);
             }
         }
 
@@ -133,7 +133,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void LogRevenue(double amount)
         {
-            _native.LogRevenue(NSNumber.FromDouble(amount));
+            _native?.LogRevenue(NSNumber.FromDouble(amount));
         }
 
         /// <summary>
@@ -143,13 +143,13 @@ namespace Uniforms.Amplitude.iOS
         {
             if (receipt != null)
             {
-                _native.LogRevenue(productIdentifier, (nint)quantity,
+                _native?.LogRevenue(productIdentifier, (nint)quantity,
                     NSNumber.FromDouble(price),
                     NSData.FromArray(receipt));
             }
             else
             {
-                _native.LogRevenue(productIdentifier, (nint)quantity,
+                _native?.LogRevenue(productIdentifier, (nint)quantity,
                     NSNumber.FromDouble(price));
             }
         }
@@ -159,7 +159,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void SetUserProperties(object userProperties, bool replace = false)
         {
-            _native.SetUserProperties(GetProperties(userProperties), replace);
+            _native?.SetUserProperties(GetProperties(userProperties), replace);
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void ClearUserProperties()
         {
-            _native.ClearUserProperties();
+            _native?.ClearUserProperties();
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void UploadEvents()
         {
-            _native.UploadEvents();
+            _native?.UploadEvents();
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void EnableLocationListening()
         {
-            _native.EnableLocationListening();
+            _native?.EnableLocationListening();
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void DisableLocationListening()
         {
-            _native.DisableLocationListening();
+            _native?.DisableLocationListening();
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void UpdateLocation()
         {
-            _native.UpdateLocation();
+            _native?.UpdateLocation();
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void UseAdvertisingIdForDeviceId()
         {
-            _native.UseAdvertisingIdForDeviceId();
+            _native?.UseAdvertisingIdForDeviceId();
         }
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace Uniforms.Amplitude.iOS
         /// </summary>
         public void PrintEventsCount()
         {
-            _native.PrintEventsCount();
+            _native?.PrintEventsCount();
         }
 
         #endregion

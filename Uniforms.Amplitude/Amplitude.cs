@@ -9,6 +9,10 @@ namespace Uniforms.Amplitude
         // Instances
         //
 
+        const string _defaultName = "*";
+
+        static bool _isDefaultInitialized = false;
+
         static IAmplitude _defaultInstance;
 
         static readonly Dictionary<string, IAmplitude> _namedInstances =
@@ -47,10 +51,11 @@ namespace Uniforms.Amplitude
             // Default instance
             if (String.IsNullOrEmpty(name))
             {
-                if (_defaultInstance == null)
+                if (!_isDefaultInitialized)
                 {
+                    _isDefaultInitialized = true;
                     _defaultInstance = Activator.CreateInstance(_implementationClass) as IAmplitude;
-                    _namedInstances.Add(_defaultInstance.InstanceName, _defaultInstance);
+                    _namedInstances.Add(_defaultName, _defaultInstance);
                 }
 
                 return _defaultInstance;

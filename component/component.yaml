@@ -1,24 +1,22 @@
 %YAML 1.2
 ---
 packages:
-  "": Newtonsoft.Json, Version=9.0.1
+  "":
+    - Uniforms.Amplitude.PCL, Version=0.9.5.2
+    - Newtonsoft.Json, Version=9.0.1
   android:
     - Square.OkHttp3, Version=3.4.1.1
 libraries:
-  mobile:
-    - ../lib/Uniforms.Amplitude.dll
   ios-unified:
-    - ../lib/Uniforms.Amplitude.dll
     - ../lib/Uniforms.Amplitude.iOS.dll
     - ../lib/Uniforms.Amplitude.Native.iOS.dll
   android:
-    - ../lib/Uniforms.Amplitude.dll
     - ../lib/Uniforms.Amplitude.Droid.dll
     - ../lib/Uniforms.Amplitude.Native.Droid.dll
 icons: 
   - uniforms-amplitude_128x128.png
   - uniforms-amplitude_512x512.png
-version: "0.9.5"
+version: "0.9.5.2"
 details: Details.md
 getting-started: GettingStarted.md
 samples: 
