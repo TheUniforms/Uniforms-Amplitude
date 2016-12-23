@@ -45,17 +45,15 @@ For **iOS**:
 // ...
 using Uniforms.Amplitude;
 
+// ...
+
 public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 {
     global::Xamarin.Forms.Forms.Init();
 
     LoadApplication(new App());
 
-    Uniforms.Amplitude.iOS.Amplitude.Register(this);
-
-    // cross-platform interface, this code can be placed
-    // to shared or portable application
-    Amplitude.Instance.LogEvent("Start");
+    Uniforms.Amplitude.iOS.Amplitude.Register();
 
     return base.FinishedLaunching(app, options);
 }
@@ -69,6 +67,8 @@ For **Android**:
 // ...
 using Uniforms.Amplitude;
 
+// ...
+
 protected override void OnCreate(Bundle bundle)
 {
     base.OnCreate(bundle);
@@ -77,11 +77,23 @@ protected override void OnCreate(Bundle bundle)
 
     Uniforms.Amplitude.Droid.Amplitude.Register(this);
 
-    // cross-platform interface, this code can be placed
-    // to shared or portable application
-    Amplitude.Instance.LogEvent("Start");
-
     LoadApplication(new App());
+}
+```
+
+In shared application:
+
+```csharp
+using Xamarin.Forms;
+using Uniforms.Amplitude;
+
+// ...
+
+protected override void OnStart()
+{
+    Amplitude.Instance.Initialize("PASTE YOUR API KEY HERE");
+
+    Amplitude.Instance.LogEvent("Start");
 }
 ```
 

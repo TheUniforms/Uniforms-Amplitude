@@ -215,6 +215,18 @@ Troubleshooting
 
 Having such exception on `Amplitude.Instance.Initialize()` means that implementation class was not registered. Make user you call `Register()` static method before trying to get Amplitude instance.
 
+### Events are not sent on Android
+
+Make sure you've added the `INTERNET` permission.
+
+### Conflict with ModernHttpClient library on Android.
+
+You may get such error while compiling: `Error: java.lang.IllegalArgumentException: already added : Lokio/AsyncTimeout;`
+
+The reason is `ModernHttpClient 2.4.2` and below has `okio` library JAR embedded and this may cause JAR duplication. Newer version references `okio` via external package but it's not available at the moment on <NuGet.Org>.
+
+To resolve this you may use our custom build from [vendor directory](https://github.com/TheUniforms/Uniforms-Amplitude/tree/master/vendor) or build it manually from [this fork](https://github.com/TheUniforms/ModernHttpClient).
+
 License
 -------
 
