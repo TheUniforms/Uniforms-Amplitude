@@ -2,7 +2,7 @@
 ---
 packages:
   "":
-    - Uniforms.Amplitude.PCL, Version=0.9.7
+    - Uniforms.Amplitude.PCL, Version=0.9.6
     - Newtonsoft.Json, Version=9.0.1
   android:
     - Square.OkHttp3, Version=3.4.1.1
@@ -19,9 +19,16 @@ icons:
 version: "0.9.7"
 details: Details.md
 getting-started: GettingStarted.md
-samples: 
-  iOS Sample: ../samples/AmplSample.iOS.sln
-  Android Sample: ../samples/AmplSample.Droid.sln
+nobuild: true
+samples:
+  - name: "iOS Sample"
+    path: ../samples/AmplSample.iOS.sln
+    configuration: "Release|iPhone"
+    # nobuild: true
+  - name: "Android Sample"
+    path: ../samples/AmplSample.Droid.sln
+    configuration: "Release"
+    # nobuild: true
 id: uniforms-amplitude
 summary: "A cross-platform Xamarin SDK for tracking events to Amplitude."
 publisher-url: https://github.com/TheUniforms/Uniforms-Amplitudde
