@@ -26,7 +26,6 @@ namespace AmplSample.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::AmplSample.Droid.Resource.Attribute.actionBarSize;
 			global::Uniforms.Amplitude.Droid.Resource.String.library_name = global::AmplSample.Droid.Resource.String.library_name;
 		}
 		

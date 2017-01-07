@@ -6,7 +6,7 @@
 Config.resx
 
 # Restored packages
-/examples/packages
+/samples/packages
 /packages
 
 # Tools
