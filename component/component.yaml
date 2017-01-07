@@ -24,11 +24,11 @@ samples:
   - name: "iOS Sample"
     path: ../samples/AmplSample.iOS.sln
     configuration: "Release|iPhone"
-    # nobuild: true
+    nobuild: true
   - name: "Android Sample"
     path: ../samples/AmplSample.Droid.sln
     configuration: "Release"
-    # nobuild: true
+    nobuild: true
 id: uniforms-amplitude
 summary: "A cross-platform Xamarin SDK for tracking events to Amplitude."
 publisher-url: https://github.com/TheUniforms/Uniforms-Amplitudde

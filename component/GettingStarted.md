@@ -10,21 +10,27 @@ Plase note, the component developers aren't affiliated with Amplitude!
 Quickstart
 ----------
 
-1. Initialize platform specific classes:
+### 1. Initialize platform specific classes:
 
-    For **iOS** application in `UIApplicationDelegate.FinishedLaunching()`:
+For **iOS** application in `UIApplicationDelegate.FinishedLaunching()`:
 
-    `Uniforms.Amplitude.iOS.Amplitude.Register();`
+```csharp
+Uniforms.Amplitude.iOS.Amplitude.Register();
+```
 
-    For **Android** application in `OnCreate()` of main activity:
+For **Android** application in `OnCreate()` of main activity:
 
-    `Uniforms.Amplitude.Droid.Amplitude.Register(this);`
+```csharp
+Uniforms.Amplitude.Droid.Amplitude.Register(this);
+```
 
-2. Initialize Amplitude with API key:
+### 2. Initialize Amplitude with API key:
 
-    `Amplitude.Instance.Initialize("PASTE YOUR API KEY HERE");`
+```csharp
+Amplitude.Instance.Initialize("PASTE YOUR API KEY HERE");
+```
 
-3. Start sending events to Amplitude:
+### 3. Start sending events to Amplitude:
 
 ```csharp
 using Uniforms.Amplitude;

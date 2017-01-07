@@ -1,6 +1,7 @@
 MDTOOL ?= /Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool
 OUTPUT_DIR ?= lib
 COMPONENT_DIR ?= component
+COMPONENT_VERSION = 0.9.7
 
 .PHONY: all clean package component pcl ios android
 
@@ -21,6 +22,10 @@ component: ios android
 	cp -v Uniforms.Amplitude.iOS/bin/Release/*.dll* $(OUTPUT_DIR)
 	cp -v Uniforms.Amplitude.Native.iOS/bin/Release/*.dll* $(OUTPUT_DIR)
 	cd $(COMPONENT_DIR) && mono xamarin-component.exe package
+
+install:
+	cd $(COMPONENT_DIR) && mono xamarin-component.exe install \
+		uniforms-amplitude-$(COMPONENT_VERSION).xam
 
 pcl:
 	$(MDTOOL) build -c:Release \
