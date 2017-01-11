@@ -31,7 +31,7 @@ samples:
     nobuild: true
 id: uniforms-amplitude
 summary: "A cross-platform Xamarin SDK for tracking events to Amplitude."
-publisher-url: https://github.com/TheUniforms/Uniforms-Amplitudde
+publisher-url: https://github.com/TheUniforms/Uniforms-Amplitude
 license: License.md
 #screenshots: 
 #  - screenshots/screenshot1.png
