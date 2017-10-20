@@ -66,7 +66,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\amplitude-android-2.13.2.jar" />
+    <EmbeddedJar Include="Jars\amplitude-android-2.15.0.jar" />
   </ItemGroup>
   <ItemGroup>
     <ReferenceJar Include="Jars\okhttp-3.5.0.jar" />

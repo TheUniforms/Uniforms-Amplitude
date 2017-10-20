@@ -31,8 +31,8 @@ namespace Uniforms.Amplitude.Droid
                 if (_native == null)
                 {
                     _native = String.IsNullOrEmpty(_name) ?
-                        NativeImplementation.Instance :
-                        new NativeImplementation();
+                                    new NativeImplementation() :
+                                    new NativeImplementation(_name);
                 }
 
                 return _native;

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Uniforms.Amplitude.PCL</id>
-    <version>0.9.6</version>
+    <version>0.9.8</version>
     <title>Amplitude for Xamarin, PCL</title>
     <authors>Alexey Kinëv</authors>
     <owners>Alexey Kinëv</owners>
